@@ -1,0 +1,32 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-service
+
+#Actuator
+info:
+  app:
+    name: Eureka Discovery Service
+
+#Micrometr
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: '*'
+
+eureka:
+  server:
+    enable-self-preservation: true
+  instance:
+    hostname: localhost
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
