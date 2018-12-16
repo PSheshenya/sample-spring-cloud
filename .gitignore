@@ -1,5 +1,13 @@
 # Compiled class file
 *.class
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 # Log file
 *.log
