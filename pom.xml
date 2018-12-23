@@ -10,6 +10,7 @@
     <modules>
         <module>gateway-service</module>
         <module>eureka-discovery-service</module>
+        <module>foo-flux-service</module>
     </modules>
 
 </project>
