@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: my.sheshenya.services.foofluxserioce.FooFluxServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.528 s <<< FAILURE! - in my.sheshenya.services.foofluxserioce.FooFluxServiceApplicationTests
+initializationError(my.sheshenya.services.foofluxserioce.FooFluxServiceApplicationTests)  Time elapsed: 0.008 s  <<< ERROR!
+java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+
