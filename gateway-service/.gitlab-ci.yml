@@ -1,0 +1,16 @@
+stages:
+  - build
+  - push
+
+build_snapshots:
+  stage: build
+  image:
+  script:
+    - echo "Build on linux docker runner container"
+    - mvn package -U -e
+  artifacts:
+    paths:
+    - target
+    - Dockerfile
+  tags:
+    - docker

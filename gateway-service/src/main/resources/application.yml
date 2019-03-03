@@ -8,22 +8,38 @@ spring:
     gateway:
       discovery:
         locator:
-          enabled: true
+          enabled: true #discovery server
+      routes:
+        - id: foo-service
+          uri: lb://FOO-SERVICE  #uri: http://localhost:8080
+          predicates:
+            - Path=/foo/**
+          filters:
+            - RewritePath=/foo/v2/api-docs, /v2/api-docs
+            - RewritePath=/foo/(?<path>.*), /hello/$\{path}
+        - id: bar-service
+          uri: lb://bar-service
+          predicates:
+            - Path=/bar/**
+          filters:
+            - RewritePath=/bar/(?.*), /$\{path}
 
-#Actuator
+#actuator
 info:
   app:
-    name: GateWay Service
+    name: Gateway Server
+    description: This is Gateway Server spring boot application
+    version: 1.0.0
 
-#Micrometr
+#Micrometer
 management:
   endpoint:
     gateway:
-      enabled: true
+      enabled: true # default value
   endpoints:
     web:
       exposure:
-        exclude: '*' #or just gateway
+        include: '*' #gateway
 
 #Eureka
 eureka:
